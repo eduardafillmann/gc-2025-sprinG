@@ -1,4 +1,5 @@
-package com.duda.fillmann.entities;
+package com.duda.fillmann.controller;
+import com.duda.fillmann.entities.TipoPokemon;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
-public class TipoPokemon {
+public class PokemonController {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="tipo_id")
@@ -20,7 +21,7 @@ public class TipoPokemon {
     private NomeTipo nome;
 
     @ManyToMany(mappedBy="tipo")
-    private Set<Pokemon> pokemonTipo = new HashSet<>();
+    private Set<TipoPokemon> pokemonTipo = new HashSet<>();
 
     enum NomeTipo{
         AGUA,
@@ -31,8 +32,8 @@ public class TipoPokemon {
 
     public boolean equals(Object o){
         if(o == null || getClass() != o.getClass()) return false;
-        TipoPokemon tipo = (TipoPokemon) o;
-        return Objects.equals(id, tipo.id);
+        com.duda.fillmann.entities.TipoPokemon tipo = (com.duda.fillmann.entities.TipoPokemon) o;
+        return Objects.equals(id, tipo.getPokemonTipo());
     }
 
     @Override
@@ -40,4 +41,3 @@ public class TipoPokemon {
         return Objects.hashCode(id);
     }
 }
-
