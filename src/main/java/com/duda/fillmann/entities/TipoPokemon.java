@@ -1,10 +1,10 @@
 package com.duda.fillmann.entities;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Objects;
+import jakarta.persistence.*;
 import java.util.Set;
 
 @Setter
@@ -22,7 +22,7 @@ public class TipoPokemon {
     @ManyToMany(mappedBy="tipo")
     private Set<Pokemon> pokemonTipo = new HashSet<>();
 
-    enum NomeTipo{
+    public enum NomeTipo{
         AGUA,
         VENENOSO,
         FOGO,
@@ -40,4 +40,3 @@ public class TipoPokemon {
         return Objects.hashCode(id);
     }
 }
-

@@ -43,6 +43,9 @@ public class Pokemon {
         return Objects.hashCode(id);
     }
 
+    public void setTipos(HashSet<TipoPokemon> tipoPokemons) {
+
+    }
 }
 
 
